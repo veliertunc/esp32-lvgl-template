@@ -1,0 +1,10 @@
+idf_component_register(
+  SRCS
+  "src/display.c"
+  INCLUDE_DIRS
+  "include"
+  REQUIRES
+  lvgl
+  esp_lcd
+  esp_lcd_touch
+  driver)

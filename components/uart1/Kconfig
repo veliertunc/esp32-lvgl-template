@@ -1,0 +1,63 @@
+menu "UART1 Configuration"
+
+config UART1_TX_PIN
+    int "UART1 TX GPIO Pin"
+    default 17
+
+config UART1_RX_PIN
+    int "UART1 RX GPIO Pin"
+    default 16
+
+config UART1_BUF_SIZE
+    int "UART1 RX Buffer Size (bytes)"
+    default 1024
+    range 128 4096
+
+config UART1_BAUD_RATE
+    int "UART1 Baud Rate"
+    default 115200
+
+config UART1_DATA_BITS
+    int "UART1 Data Bits"
+    default 8
+    range 5 8
+
+choice
+    prompt "UART1 Parity"
+    default UART1_PARITY_DISABLE
+
+config UART1_PARITY_DISABLE
+    bool "Disable Parity"
+
+config UART1_PARITY_EVEN
+    bool "Even Parity"
+
+config UART1_PARITY_ODD
+    bool "Odd Parity"
+
+endchoice
+
+config UART1_STOP_BITS
+    int "UART1 Stop Bits"
+    default 1
+    range 1 2
+
+choice
+    prompt "UART1 Flow Control"
+    default UART1_FLOWCTRL_DISABLE
+
+config UART1_FLOWCTRL_DISABLE
+    bool "Disable Flow Control"
+
+config UART1_FLOWCTRL_RTS
+    bool "Enable RTS Flow Control"
+
+config UART1_FLOWCTRL_CTS
+    bool "Enable CTS Flow Control"
+
+config UART1_FLOWCTRL_RTS_CTS
+    bool "Enable RTS/CTS Flow Control"
+
+endchoice
+
+endmenu

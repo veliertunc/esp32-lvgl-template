@@ -1,0 +1,22 @@
+menu "External I2C Configuration"
+
+config I2C_EXT_PORT_NUM
+    int "I2C Port Number"
+    default 0
+    range 0 1
+
+config I2C_EXT_SDA_PIN
+    int "I2C SDA GPIO Pin"
+    default 22
+
+config I2C_EXT_SCL_PIN
+    int "I2C SCL GPIO Pin"
+    default 21
+
+config I2C_EXT_FREQ_HZ
+    int "I2C Frequency (Hz)"
+    default 400000
+    range 100000 1000000
+
+endmenu
+

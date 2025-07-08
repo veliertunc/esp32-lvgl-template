@@ -1,0 +1,27 @@
+menu "External GPIO_D Configuration"
+
+choice GPIO32_MODE
+    prompt "GPIO32 mode"
+    default GPIO32_MODE_ADC
+
+config GPIO32_MODE_ADC
+    bool "ADC1 Channel 4 (ADC Mode)"
+
+config GPIO32_MODE_DIGITAL
+    bool "Digital IO Mode"
+
+endchoice
+
+choice GPIO35_MODE
+    prompt "GPIO35 mode"
+    default GPIO35_MODE_ADC
+
+config GPIO35_MODE_ADC
+    bool "ADC1 Channel 7 (ADC Mode)"
+
+config GPIO35_MODE_DIGITAL
+    bool "Digital IO Mode"
+
+endchoice
+
+endmenu

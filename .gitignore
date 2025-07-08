@@ -1,0 +1,61 @@
+# Ignore build artifacts
+/build/
+./cache/
+/*.elf
+/*.bin
+/*.map
+/sdkconfig.old
+
+# Project-specific temporary files
+*.log
+*.pyc
+*.pyo
+*.tmp
+*.bak
+*.swp
+*.swo
+*.swn
+*.orig
+
+# ESP-IDF generated files
+*.d
+*.o
+*.a
+*.ld
+*.lst
+*.bin
+*.map
+*.hex
+*.out
+
+# ESP-IDF related caches
+/.pytest_cache/
+/__pycache__/
+/dist/
+/*.core
+
+# Configuration files
+/sdkconfig
+/CMakeCache.txt
+/.cmake/
+
+# VS Code files
+.vscode/
+*.code-workspace
+
+# CLion / JetBrains IDEs
+.idea/
+
+# Optional: backup files
+*~
+*.bak
+*.orig
+
+# Unix/macOS junk
+.DS_Store
+
+# Windows junk
+Thumbs.dbied_
+
+.env
+.env.*

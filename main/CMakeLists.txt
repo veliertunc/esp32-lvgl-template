@@ -1,0 +1,11 @@
+idf_component_register(
+  SRCS
+  "src/main.c"
+  INCLUDE_DIRS
+  "include"
+  REQUIRES
+  display
+  lvgl
+  uart1
+  i2c_ext
+  gpio_d)

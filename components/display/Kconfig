@@ -1,0 +1,120 @@
+menu "Display Config"
+
+config DISPLAY_USE_ILI9341
+    bool "Use ILI9341 display"
+    default y
+
+config DISPLAY_USE_XPT2046
+    bool "Use XPT2046 touch"
+    default y
+
+menu "Display Pin Configuration"
+# ------- OLD ----------
+# CONFIG_PIN_NUM_MISO=19
+# CONFIG_PIN_NUM_MOSI=23
+# CONFIG_PIN_NUM_CLK=18
+# CONFIG_PIN_NUM_CS=5
+# CONFIG_PIN_NUM_DC=21
+# CONFIG_PIN_NUM_RST=22
+# CONFIG_PIN_NUM_BL=4
+
+
+config PIN_NUM_MISO
+    int "SPI MISO GPIO Pin"
+    default 19
+
+config PIN_NUM_MOSI
+    int "SPI MOSI GPIO Pin"
+    default 23
+
+config PIN_NUM_CLK
+    int "SPI CLK GPIO Pin"
+    default 18
+
+config PIN_NUM_CS
+    int "LCD CS GPIO Pin"
+    default 5
+
+config PIN_NUM_DC
+    int "LCD DC GPIO Pin"
+    default 21
+
+config PIN_NUM_RST
+    int "LCD Reset GPIO Pin"
+    default 22
+
+config PIN_NUM_BL
+    int "Backlight GPIO Pin"
+    default 4
+
+endmenu
+
+menu "Touch Pin Configuration"
+
+# ------- OLD ----------
+# CONFIG_PIN_NUM_TOUCH_CS=15
+# CONFIG_PIN_NUM_TOUCH_IRQ=13
+
+config PIN_NUM_TOUCH_CS
+    int "Touch CS GPIO Pin"
+    default 15
+
+config PIN_NUM_TOUCH_IRQ
+    int "Touch IRQ GPIO Pin"
+    default 13
+
+endmenu
+
+menu "SPI Host Configuration"
+
+choice DISPLAY_SPI_HOST
+    prompt "SPI Host used for LCD + Touch"
+    default DISPLAY_SPI2_HOST
+
+config DISPLAY_SPI1_HOST
+    bool "SPI1_HOST (SPI1 - reserved for flash/psram, not recommended)"
+
+config DISPLAY_SPI2_HOST
+    bool "SPI2_HOST (VSPI - default, recommended)"
+
+config DISPLAY_SPI3_HOST
+    bool "SPI3_HOST (HSPI)"
+
+endchoice
+
+endmenu
+
+menu "LVGL Display Settings"
+
+config LVGL_HOR_RES
+    int "Horizontal resolution"
+    default 240
+    range 1 480
+    help
+      "Set horizontal resolution of the display."
+
+config LVGL_VER_RES
+    int "Vertical resolution"
+    default 320
+    range 1 480
+    help
+      "Set vertical resolution of the display."
+
+choice
+    prompt "LVGL Color depth"
+    default LVGL_COLOR_DEPTH_16
+
+config LVGL_COLOR_DEPTH_8
+    bool "8-bit color"
+
+config LVGL_COLOR_DEPTH_16
+    bool "16-bit color"
+
+config LVGL_COLOR_DEPTH_32
+    bool "32-bit color"
+
+endchoice
+
+endmenu
+
+endmenu

@@ -1,0 +1,13 @@
+
+menu "Main Application Config"
+
+config APP_EXAMPLE
+    bool "Enable example LVGL screen"
+    default y
+
+source "../components/display/Kconfig"
+source "../components/gpio_d/Kconfig"
+source "../components/i2c_ext/Kconfig"
+source "../components/uart1/Kconfig"
+
+endmenu
