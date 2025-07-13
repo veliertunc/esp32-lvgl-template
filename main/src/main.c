@@ -1,11 +1,4 @@
-#include "display.h"
-#include "esp_log.h"
-#include "esp_timer.h"
-#include "gpio_d.h"
-#include "i2c_ext.h"
-#include "lvgl.h"
-#include "uart1.h"
-#include <stdio.h>
+#include "main.h"
 
 static const char *TAG = "main";
 
@@ -43,15 +36,24 @@ void app_main(void) {
   ESP_LOGI(TAG, "Initializing display...");
   display_init();
 
-  const esp_timer_create_args_t periodic_timer_args = {.callback = &lv_tick_cb,
-                                                       .name = "lv_tick"};
-  esp_timer_handle_t periodic_timer;
-  esp_timer_create(&periodic_timer_args, &periodic_timer);
-  esp_timer_start_periodic(periodic_timer, 1000); // 1ms tick
+  ESP_LOGI(TAG, "Initializing SD Card...");
+  sd_card_init();
 
-  lv_obj_t *label = lv_label_create(lv_scr_act());
-  lv_label_set_text(label, "Hello Elecrow!");
-  lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
+  // Create a screen or container for file browser
+  lv_obj_t *scr = lv_scr_act();
+  ESP_LOGI(TAG, "Initializing File Browser...");
+  file_browser_init(scr);
+
+  // const esp_timer_create_args_t periodic_timer_args = {.callback =
+  // &lv_tick_cb,
+  //                                                      .name = "lv_tick"};
+  // esp_timer_handle_t periodic_timer;
+  // esp_timer_create(&periodic_timer_args, &periodic_timer);
+  // esp_timer_start_periodic(periodic_timer, 1000); // 1ms tick
+  //
+  // lv_obj_t *label = lv_label_create(lv_scr_act());
+  // lv_label_set_text(label, "Hello Elecrow!");
+  // lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
 
   while (1) {
     lv_task_handler();

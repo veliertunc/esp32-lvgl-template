@@ -8,4 +8,6 @@ idf_component_register(
   lvgl
   uart1
   i2c_ext
-  gpio_d)
+  gpio_d
+  sdcard
+  file_browser)

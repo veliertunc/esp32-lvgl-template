@@ -1,0 +1,42 @@
+menu "SD Card SPI Pin Configuration"
+
+config SD_CARD_PIN_NUM_MISO
+    int "SD Card SPI MISO Pin"
+    default 19
+
+config SD_CARD_PIN_NUM_MOSI
+    int "SD Card SPI MOSI Pin"
+    default 23
+
+config SD_CARD_PIN_NUM_CLK
+    int "SD Card SPI Clock Pin"
+    default 18
+
+config SD_CARD_PIN_NUM_CS
+    int "SD Card SPI Chip Select Pin"
+    default 5
+
+endmenu
+
+menu "Mount Configuration"
+config SD_CARD_MAX_FILES
+    int "Maximum number of files on SD Card"
+    default 5
+
+choice SD_CARD_ALLOCATION_UNIT
+    prompt "SPI Host used for LCD + Touch"
+    default ALLOCATION_UNIT_KB
+
+config SD_CARD_ALLOCATION_UNIT_BYTE
+    bool "BYTE"
+config SD_CARD_ALLOCATION_UNIT_KB
+    bool "KB (default, recommended)"
+config SD_CARD_ALLOCATION_UNIT_MB
+    bool "MB"
+
+endchoice
+
+config SD_CARD_ALLOCATION_SIZE
+    int "Size of the files in allocation units e.g. B, KB, MB"
+    default 16
+endmenu

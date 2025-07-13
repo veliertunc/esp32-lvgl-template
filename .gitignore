@@ -4,7 +4,10 @@
 /*.elf
 /*.bin
 /*.map
+.cache/
 /sdkconfig.old
+/managed_components
+dependencies.lock
 
 # Project-specific temporary files
 *.log

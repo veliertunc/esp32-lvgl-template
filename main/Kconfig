@@ -9,5 +9,7 @@ source "../components/display/Kconfig"
 source "../components/gpio_d/Kconfig"
 source "../components/i2c_ext/Kconfig"
 source "../components/uart1/Kconfig"
+source "../components/sdcard/Kconfig"
+source "../components/file_browser/Kconfig"
 
 endmenu
