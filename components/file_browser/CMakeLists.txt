@@ -1,0 +1,9 @@
+idf_component_register(
+  SRCS
+  "src/file_browser.c"
+  INCLUDE_DIRS
+  "include"
+  REQUIRES
+  lvgl
+  driver
+  sdcard)

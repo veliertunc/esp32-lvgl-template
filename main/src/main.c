@@ -19,18 +19,18 @@ void app_main(void) {
 
   // Example usage GPIO_D
   int adc_val;
-  if (gpio_d_read_adc(32, &adc_val) == ESP_OK) {
+  if (gpio_d_read_adc(GPIO32, &adc_val) == ESP_OK) {
     ESP_LOGI(TAG, "GPIO32 ADC value: %d", adc_val);
   } else {
     ESP_LOGI(TAG, "GPIO32 is digital output, setting HIGH");
-    gpio_d_set_level(32, 1);
+    gpio_d_set_level(GPIO32, 1);
   }
 
-  if (gpio_d_read_adc(35, &adc_val) == ESP_OK) {
+  if (gpio_d_read_adc(GPIO35, &adc_val) == ESP_OK) {
     ESP_LOGI(TAG, "GPIO35 ADC value: %d", adc_val);
   } else {
     ESP_LOGI(TAG, "GPIO35 is digital output, setting LOW");
-    gpio_d_set_level(35, 0);
+    gpio_d_set_level(GPIO35, 0);
   }
 
   ESP_LOGI(TAG, "Initializing display...");
