@@ -4,8 +4,8 @@ idf_component_register(
   INCLUDE_DIRS
   "include"
   REQUIRES
-  display
   lvgl
+  display
   uart1
   i2c_ext
   gpio_d

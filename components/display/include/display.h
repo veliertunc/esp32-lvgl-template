@@ -50,7 +50,7 @@ static const char *TAG = "display";
 static esp_lcd_panel_handle_t panel_handle;
 static esp_lcd_touch_handle_t touch_handle;
 
-static lv_disp_draw_buf_t draw_buf;
+static lv_draw_buf_t draw_buf;
 static lv_color_t buf1[320 * 40];
 static lv_color_t buf2[320 * 40];
 
